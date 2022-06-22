@@ -1,14 +1,13 @@
 import React from "react";
-
-// only assign the key to ROOT element of the return item
+import ImageCard from "./ImageCard.js";
+import "./ImageList.css";
 
 const ImageList = (props) => {
-  console.log(props.images);
-  const images = props.images.map((image) => (
-    <img key={image.id} src={image.urls.regular} alt={image.description}></img>
-  ));
+  const images = props.images.map((image) => {
+    return <ImageCard key={image.id} image={image} />;
+  });
 
-  return <div>{images}</div>;
+  return <div className="image-list">{images}</div>;
 };
 
 export default ImageList;
